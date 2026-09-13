@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printacle | Posters & Accessories</title>
+  <link rel="stylesheet" href="printacle.css">
+</head>
+<body>
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="index.html" class="logo"><img src="logo.jpg" alt="Printacle"> <span>Printacle</span></a>
+  <a href="cart.html" class="cart">🛒 <b id="cartCount">0</b></a>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-top"><h2>Printacle</h2><button id="closeBtn">×</button></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <button class="products-toggle" id="productsToggle">Our Products <span>⌄</span></button>
+    <div class="product-menu" id="productMenu">
+      <a href="product.html?item=poster">Poster</a>
+      <a href="product.html?item=car-hanging">Car Hanging</a>
+      <a href="product.html?item=tote-hanging">Tote Hanging</a>
+      <a href="product.html?item=mugs">Mugs</a>
+      <a href="product.html?item=cards">Cards</a>
+      <a href="product.html?item=mouse-pad">Mouse Pad</a>
+    </div>
+    <a href="about.html">About Us</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">PRINT • PERSONALISE • EXPRESS</p>
+    <h1>Make your space <i>feel like you.</i></h1>
+    <p class="hero-text">Posters, mugs and everyday accessories designed to make ordinary spaces more personal.</p>
+    <a href="#products" class="btn">Explore Collection →</a>
+  </div>
+  <div class="hero-art">
+    <div class="art-one">CREATE<br>YOUR<br>VIBE</div>
+    <div class="art-two">made<br>for<br>you.</div>
+  </div>
+</section>
+
+<section class="collection" id="products">
+  <p class="eyebrow">THE COLLECTION</p>
+  <h2>Pick your canvas.</h2>
+  <div class="grid">
+    <!-- 1. Poster Card (Fixed <h3> placement) -->
+    <a class="product-card" href="product.html?item=poster">
+      <div class="sample poster">
+        <img src="poster1.png" class="card-img" alt="Poster">
+        <h3>Poster <span>Explore →</span></h3>
+      </div>
+    </a>
+
+    <!-- 2. Car Hanging Card -->
+    <a class="product-card" href="product.html?item=car-hanging">
+      <div class="sample car">
+        <h3>DRIVE<br>WITH<br>STYLE <span>Explore →</span></h3>
+      </div>
+    </a>
+
+    <!-- 3. Tote Hanging Card -->
+    <a class="product-card" href="product.html?item=tote-hanging">
+      <div class="sample tote">
+         <img src="bag1.png" class="card-img" alt="Poster">
+        <h3>GOOD<br>THINGS<br>INSIDE <span>Explore →</span></h3>
+      </div>
+    </a>
+
+    <!-- 4. Mugs Card (Fixed class to "mugs" & fixed <h3> placement) -->
+    <a class="product-card" href="product.html?item=mugs">
+      <div class="sample mugs">
+        <img src="mug1.png" class="card-img" alt="Mugs">
+        <h3>YOUR<br>DAILY<br>MOOD <span>Explore →</span></h3>
+      </div>
+    </a>
+
+    <!-- 5. Cards Card -->
+    <a class="product-card" href="product.html?item=cards">
+      <div class="sample cards">
+        <h3>SAY IT<br>YOUR<br>WAY <span>Explore →</span></h3>
+      </div>
+    </a>
+
+    <!-- 6. Mouse Pad Card -->
+    <a class="product-card" href="product.html?item=mouse-pad">
+      <div class="sample mouse">
+        <h3>CREATE<br>EVERY<br>DAY <span>Explore →</span></h3>
+      </div>
+    </a>
+  </div>
+ 
+</section>
+
+<section class="story"><p>PRINTED WITH INTENTION</p><h2>Your ideas deserve<br>a place to live.</h2><a href="about.html">Our Story →</a></section>
+</main>
+<footer>© 2026 Printacle <span>Made for your everyday.</span></footer>
+<script src="printacle.js"></script>
+</body>
+</html>

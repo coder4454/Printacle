@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+:root{--ink:#201f1c;--paper:#fbf8f1;--cream:#f3eee5;--red:#d95b43;--muted:#777168;--line:#ddd6c9}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:"DM Sans",sans-serif;background:var(--paper);color:var(--ink)}a{text-decoration:none;color:inherit}
+.header{height:76px;padding:0 5vw;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fbf8f1ee;backdrop-filter:blur(12px);z-index:20}.menu-btn,.cart{background:none;border:0;cursor:pointer;font-size:25px}.logo{font-size:23px;font-weight:700;display:flex;gap:9px;align-items:center}.logo img{width:35px;height:35px;object-fit:contain}.cart{position:relative}.cart b{position:absolute;background:var(--red);color:#fff;font-size:10px;width:19px;height:19px;border-radius:50%;display:grid;place-items:center;right:-8px;top:-8px}
+.sidebar{position:fixed;z-index:50;left:0;top:0;height:100vh;width:min(350px,88vw);background:var(--ink);color:#fff;padding:28px 30px;transform:translateX(-105%);transition:.35s}.sidebar.open{transform:translateX(0)}.side-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:35px}.side-top h2{font-size:25px}.side-top button{background:none;border:0;color:#fff;font-size:36px;cursor:pointer}.sidebar nav>a,.products-toggle{display:block;width:100%;padding:17px 0;border:0;border-bottom:1px solid #3c3a36;background:none;color:#eee;text-align:left;font:inherit;font-size:17px;cursor:pointer}.products-toggle{display:flex;justify-content:space-between}.product-menu{max-height:0;overflow:hidden;transition:.3s}.product-menu.open{max-height:350px}.product-menu a{display:block;padding:11px 0 11px 18px;color:#aaa;font-size:14px}.overlay{position:fixed;inset:0;background:#0007;z-index:40;opacity:0;visibility:hidden;transition:.3s}.overlay.show{opacity:1;visibility:visible}
+.hero{min-height:620px;padding:75px 8vw;background:var(--cream);display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;color:var(--muted);margin-bottom:17px}.hero h1{font-size:clamp(50px,7vw,90px);line-height:.95;letter-spacing:-4px}.hero h1 i{font-family:"Playfair Display",serif;color:var(--red);font-weight:500}.hero-text{max-width:500px;color:#686259;margin:28px 0;font-size:16px}.btn{display:inline-block;background:var(--ink);color:white;padding:15px 22px;font-size:14px;font-weight:700}.hero-art{height:430px;position:relative}.art-one,.art-two{position:absolute;display:grid;place-items:center;text-align:center;font-weight:700;line-height:.93;box-shadow:0 25px 50px #0002}.art-one{width:260px;height:345px;background:var(--red);color:#f9e6d4;font-size:44px;transform:rotate(-8deg);left:8%;top:30px}.art-two{width:215px;height:280px;background:#dfd0b7;font-family:"Playfair Display",serif;font-size:39px;right:5%;bottom:0;transform:rotate(7deg)}
+.collection{padding:95px 7vw}.collection h2{font:500 clamp(40px,5vw,60px) "Playfair Display",serif;margin-bottom:42px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}.product-card{background:#fff;border:1px solid var(--line);transition:.25s}.product-card:hover{transform:translateY(-6px);box-shadow:0 18px 35px #00000012}.sample{height:320px;display:grid;place-items:center;text-align:center;font-size:33px;font-weight:700;line-height:.95;padding:20px}.poster{background:#c96750;color:#fae6d4}.car{background:#26303a;color:#e4bd65}.tote{background:#d9c7a9;color:#28251f}.mug{background:#e8dce5;color:#613c54}.cards{background:#b8c9c3;color:#243d38}.mouse{background:#d6d0c5;color:#3e3830}.product-card h3{padding:18px 20px;display:flex;justify-content:space-between;font-size:17px}.product-card h3 span{font-size:12px;color:var(--muted);font-weight:400}.story{padding:90px 20px;background:var(--ink);color:var(--paper);text-align:center}.story p{font-size:10px;letter-spacing:2px;color:#aaa;margin-bottom:18px}.story h2{font:500 clamp(40px,6vw,70px) "Playfair Display",serif;line-height:1;margin-bottom:28px}.story a{color:#f0aa9b;font-weight:700}footer{background:var(--ink);color:#8f8b84;border-top:1px solid #3b3935;padding:25px 7vw;font-size:12px;display:flex;justify-content:space-between}
+@media(max-width:850px){.hero{grid-template-columns:1fr}.hero-art{height:400px}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.header{padding:0 20px}.hero{padding:55px 24px}.hero h1{letter-spacing:-2px}.hero-art{transform:scale(.85);margin:-30px 0}.collection{padding:65px 20px}.grid{grid-template-columns:1fr}.sample{height:340px}footer{flex-direction:column;gap:7px}}
+/* Target all card containers together using commas */
+.sample.poster, 
+.sample.car, 
+.sample.tote, 
+.sample.mugs, 
+.sample.cards, 
+.sample.mouse {
+    position: relative;        /* Locks absolute child components within boundaries */
+    width: 100%;
+    height: 380px;             /* Forces all cards to be the exact same uniform height */
+    overflow: hidden;          /* Crops everything outside the card frame */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;    /* Aligns your text titles to the bottom of the card */
+}
+
+/* This applies automatically to every image since they share the same class */
+.card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;         /* Fills the space and crops cleanly without stretching */
+    z-index: 1;                /* Forces image to sit in the background background layer */
+}
+
+/* Styles the text elements across all cards uniformly */
+.product-card div h3, 
+.product-card div h2 {
+    position: relative;
+    z-index: 2;                /* Positions text cleanly over your background images */
+    padding: 20px;             /* Keeps the text safe from touching card borders */
+    color: #ffffff;            /* High-contrast color so it reads clearly over images */
+    margin: 0;
+    font-size: 1.5rem;         /* Keeps typography size consistent across items */
+}
