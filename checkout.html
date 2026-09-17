@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printacle | Delivery</title>
+  <link rel="stylesheet" href="printacle.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="cart.html" class="back-home">←</a>
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" alt="Printacle">
+    <span>Printacle</span>
+  </a>
+  <span></span>
+</header>
+
+<main class="checkout-page">
+  <div class="checkout-heading">
+    <p class="eyebrow">DELIVERY DETAILS</p>
+    <h1>Where should we <i>send it?</i></h1>
+    <p>Enter your delivery address and pincode.</p>
+  </div>
+
+  <div class="checkout-layout">
+    <form class="address-card" id="addressForm">
+      <label>
+        Full name
+        <input id="customerName" type="text" required placeholder="Your name">
+      </label>
+
+      <label>
+        Mobile number
+        <input id="customerPhone" type="tel" inputmode="numeric" required placeholder="10-digit mobile number" maxlength="10">
+      </label>
+
+      <label>
+        House / Street / Area
+        <textarea id="customerAddress" required placeholder="House no., street, locality"></textarea>
+      </label>
+
+      <div class="two-fields">
+        <label>
+          City
+          <input id="customerCity" type="text" required placeholder="City">
+        </label>
+        <label>
+          State
+          <input id="customerState" type="text" required placeholder="State">
+        </label>
+      </div>
+
+      <label>
+        Pincode
+        <input id="customerPincode" type="text" inputmode="numeric" required maxlength="6" placeholder="6-digit pincode">
+      </label>
+
+      <button type="button" class="distance-btn" id="distanceButton">Calculate delivery charge</button>
+      <div class="distance-result" id="distanceResult" aria-live="polite"></div>
+
+      <button type="submit" class="continue-payment" id="continuePayment">Continue to payment →</button>
+
+      <div class="payment-box" id="paymentBox" hidden>
+        <p class="eyebrow">PAYMENT</p>
+        <h2>Pay <span id="paymentAmount">₹0</span></h2>
+        <p>Tap the button below to open your UPI app with the amount already filled in.</p>
+        <a class="upi-payment-btn" id="paymentLink" href="#">Pay with UPI →</a>
+        <small>UPI ID: coder4454@oksbi</small>
+      </div>
+    </form>
+
+    <aside class="checkout-summary">
+      <p class="eyebrow">ORDER SUMMARY</p>
+      <div id="checkoutItems"></div>
+      <div class="checkout-charge-row">
+        <span>Delivery</span>
+        <strong id="deliveryCharge">Calculated after pincode</strong>
+      </div>
+      <div class="checkout-total">
+        <span>Total</span>
+        <strong>₹<span id="checkoutTotal">0</span></strong>
+      </div>
+      <p class="checkout-note">Delivery charges are calculated from the delivery pincode. The distance itself is kept hidden.</p>
+    </aside>
+  </div>
+</main>
+
+<script src="printacle.js"></script>
+</body>
+</html>
