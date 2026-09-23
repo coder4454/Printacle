@@ -1,0 +1,166 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printacle | About Us</title>
+  <link rel="stylesheet" href="printacle.css">
+</head>
+<body>
+<header class="header">
+  <a href="index.html" class="back-home">←</a>
+  <a href="index.html" class="logo"><img src="logo.jpg" alt="Printacle"><span>Printacle</span></a>
+  <a href="cart.html" class="cart">🛒 <b id="cartCount">0</b></a>
+</header>
+
+<main class="about-page">
+  <section class="about-hero">
+    <p class="eyebrow">ABOUT PRINTACLE</p>
+    <h1>Made for your <i>everyday.</i></h1>
+    <p>Printacle is a place for posters, mugs and everyday accessories designed to make ordinary spaces more personal.</p>
+  </section>
+
+  <section class="about-story">
+    <p class="eyebrow">OUR STORY</p>
+    <h2>Your ideas deserve a place to live.</h2>
+    <p>We created Printacle around a simple idea: the things around you should feel like they belong to you. From wall art to everyday accessories, our collection is made to bring a little more personality into your space.</p>
+  </section>
+
+  <section class="about-values">
+    <div><p class="eyebrow">01</p><h3>Print</h3><p>Products made to turn ideas, interests and memories into something tangible.</p></div>
+    <div><p class="eyebrow">02</p><h3>Personalise</h3><p>Choose pieces that fit your room, your style and your everyday life.</p></div>
+    <div><p class="eyebrow">03</p><h3>Express</h3><p>Make ordinary spaces feel a little more like you.</p></div>
+  </section>
+</main>
+<footer>© 2026 Printacle <span>Made for your everyday.</span></footer>
+<script src="printacle.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printacle | About Us</title>
+  <link rel="stylesheet" href="printacle.css">
+</head>
+<body>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" alt="Printacle">
+    <span>Printacle</span>
+  </a>
+  <a href="cart.html" class="cart">🛒 <b id="cartCount">0</b></a>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-top">
+    <h2>Printacle</h2>
+    <button id="closeBtn">×</button>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <button class="products-toggle" id="productsToggle">Our Products <span>⌄</span></button>
+    <div class="product-menu" id="productMenu">
+      <a href="product.html?category=posters">Posters</a>
+      <a href="product.html?category=tote-bags">Tote Bags</a>
+      <a href="product.html?category=frosted-mugs">Frosted Mugs</a>
+      <a href="product.html?category=car-hangings">Car Hangings</a>
+    </div>
+    <a href="about.html">About Us</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main class="about-page">
+  <!-- CUSTOM POSTERS SECTION -->
+  <section class="about-hero" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 70px 20px 40px;">
+    <p class="eyebrow">CUSTOM ORDER</p>
+    <h1>Want Customized <i>posters?</i></h1>
+    <p style="margin: 20px 0 30px; font-size: 16px; color: var(--muted);">
+      Email or WhatsApp the image to get your personalized product.
+    </p>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <!-- <a href="mailto:coder4454@gmail.com" class="btn" style="min-width: 160px; text-align: center;">Email Us</a> -->
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=coder4454@gmail.com" target="_blank" class="btn" style="min-width: 160px; text-align: center;">Email us </a>
+      <a href="https://wa.me/919817152572" target="_blank" class="btn" style="min-width: 160px; text-align: center">WhatsApp Us</a>
+      <!-- <a href="https://wa.me/" class="btn" style="min-width: 160px; text-align: center; background: var(--red);">WhatsApp Us</a> -->
+       <a href="tel:+918556923678" class="btn" style="min-width: 160px; text-align: center;">Call Us</a>
+    </div>
+  </section>
+
+  <!-- AESTHETIC ABOUT US SECTION -->
+  <section class="about-story" style="background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 80px 20px; text-align: center;">
+    <div style="max-width: 750px; margin: 0 auto;">
+      <p class="eyebrow">ABOUT US</p>
+      <h2 style="font: 500 clamp(35px, 5vw, 55px) 'Playfair Display', serif; margin-bottom: 25px; line-height: 1.1;">
+        personalizing your every day objects <i>your story.</i>
+      </h2>
+      <p style="font-size: 16px; line-height: 1.8; color: var(--muted);">
+        give us the image that you want to see everday and we assure you to give the best quality product that is gonna last you a long time . call us or whatsapp us at anytime as you wish 
+      </p>
+    </div>
+  </section>
+
+  <!-- OUR MEMBERS SECTION -->
+  <section style="max-width: 1050px; margin: 0 auto; padding: 80px 20px;">
+    <div style="text-align: center; margin-bottom: 50px;">
+      <p class="eyebrow">THE TEAM</p>
+      <h2 style="font: 500 clamp(35px, 5vw, 50px) 'Playfair Display', serif;">Our Members</h2>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+      <div class="product-card" style="padding: 25px; text-align: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--cream); margin: 0 auto 20px; display: grid; place-items: center; font-size: 32px; border: 1px solid var(--line);">👤</div>
+        <h3 style="color: var(--ink); text-shadow: none; font-size: 1.2rem; padding: 0; margin-bottom: 5px;">Kunal Setia </h3>
+        <p style="color: var(--muted); font-size: 13px;">Founder </p>
+      </div>
+
+      <div class="product-card" style="padding: 25px; text-align: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--cream); margin: 0 auto 20px; display: grid; place-items: center; font-size: 32px; border: 1px solid var(--line);">👤</div>
+        <h3 style="color: var(--ink); text-shadow: none; font-size: 1.2rem; padding: 0; margin-bottom: 5px;">Sameer Dhonchak </h3>
+        <p style="color: var(--muted); font-size: 13px;">Tech lead</p>
+      </div>
+<!-- 
+      <div class="product-card" style="padding: 25px; text-align: center;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--cream); margin: 0 auto 20px; display: grid; place-items: center; font-size: 32px; border: 1px solid var(--line);">👤</div>
+        <h3 style="color: var(--ink); text-shadow: none; font-size: 1.2rem; padding: 0; margin-bottom: 5px;">Member Name</h3>
+        <p style="color: var(--muted); font-size: 13px;">Operations & Logistics</p>
+      </div>
+    </div> -->
+  </section>
+
+  <!-- CONTACT US SECTION -->
+  <section style="background: var(--ink); color: var(--paper); padding: 80px 20px;">
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p class="eyebrow" style="color: #aaa;">GET IN TOUCH</p>
+      <h2 style="font: 500 clamp(35px, 5vw, 55px) 'Playfair Display', serif; margin-bottom: 35px;">Contact Us</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 30px; text-align: center; margin-top: 20px;">
+        <div style="border: 1px solid #3c3a36; padding: 20px; background: rgba(255,255,255,0.03);">
+          <p style="font-size: 11px; letter-spacing: 2px; color: #aaa; margin-bottom: 8px;">PHONE NUMBER</p>
+          <a href="tel:+918556923678" style="color: #f0aa9b; font-size: 15px; font-weight: 500;">8556923678</a>
+        </div>
+
+        <div style="border: 1px solid #3c3a36; padding: 20px; background: rgba(255,255,255,0.03);">
+          <p style="font-size: 11px; letter-spacing: 2px; color: #aaa; margin-bottom: 8px;">Email</p>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=printacleprints@gmail.com" target="_blank" style="color: #f0aa9b; font-size: 15px; font-weight: 500;">printacleprints@gamil.com</a>
+        </div>
+
+        <div style="border: 1px solid #3c3a36; padding: 20px; background: rgba(255,255,255,0.03);">
+          <p style="font-size: 11px; letter-spacing: 2px; color: #aaa; margin-bottom: 8px;">WHATSAPP</p>
+          <a href="https://wa.me/918556923678" target="_blank" style="color: #f0aa9b; font-size: 15px; font-weight: 500;">8556923678</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Printacle <span>Made for your everyday.</span></footer>
+<script src="printacle.js"></script>
+</body>
+</html>
