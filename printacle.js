@@ -480,10 +480,6 @@ function initSidebar() {
 }
 
 /* =========================================================
-   HERO AUTO-SLIDING CAROUSEL
-   ========================================================= */
-
-/* =========================================================
    HERO AUTO-SLIDING CAROUSEL (6 SLIDES)
    ========================================================= */
 
@@ -1187,15 +1183,10 @@ async function calculateDeliveryCharge() {
   }
 }
 
-function buildUpiLink(total, customerName, pincode) {
-  const params = new URLSearchParams({
-    pa: PAYMENT_UPI_ID,
-    pn: "Printacle",
-    am: Number(total).toFixed(2),
-    cu: "INR",
-    tn: `Printacle Order - ${customerName} - ${pincode}`
-  });
-  return `upi://pay?${params.toString()}`;
+// Clean UPI Link generator designed for Personal VPA compatibility
+function buildUpiLink(total) {
+  const cleanAmount = Number(total).toFixed(2);
+  return `upi://pay?pa=${encodeURIComponent(PAYMENT_UPI_ID)}&pn=${encodeURIComponent("Printacle")}&am=${cleanAmount}&cu=INR`;
 }
 
 async function sendOrderEmail(order) {
@@ -1305,14 +1296,20 @@ async function handleCheckoutSubmit(event) {
     console.warn("Order email could not be sent:", error);
   }
 
-  const upiLink = buildUpiLink(total, name, pincode);
+  const upiLink = buildUpiLink(total);
   const paymentBox = document.getElementById("paymentBox");
   const paymentAmount = document.getElementById("paymentAmount");
   const paymentLink = document.getElementById("paymentLink");
+  const upiQrCode = document.getElementById("upiQrCode");
 
   if (paymentBox && paymentAmount && paymentLink) {
     paymentAmount.textContent = `₹${money(total)}`;
     paymentLink.href = upiLink;
+    
+    if (upiQrCode) {
+      upiQrCode.src = `https://quickchart.io/qr?text=${encodeURIComponent(upiLink)}&size=250`;
+    }
+
     paymentBox.hidden = false;
     paymentBox.scrollIntoView({ behavior: "smooth", block: "center" });
   } else {
@@ -1329,12 +1326,19 @@ function initCheckout() {
   const form = document.getElementById("addressForm");
   const distanceButton = document.getElementById("distanceButton");
   const pincode = document.getElementById("customerPincode");
+  const copyBtn = document.getElementById("copyUpiBtn");
 
   if (!form) return;
 
   distanceButton?.addEventListener("click", calculateDeliveryCharge);
   pincode?.addEventListener("input", resetCheckoutCalculation);
   form.addEventListener("submit", handleCheckoutSubmit);
+
+  copyBtn?.addEventListener("click", () => {
+    navigator.clipboard.writeText(PAYMENT_UPI_ID);
+    copyBtn.textContent = "Copied! ✓";
+    setTimeout(() => { copyBtn.textContent = "Copy UPI ID"; }, 2000);
+  });
 
   renderCheckoutSummary();
 }
