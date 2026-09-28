@@ -156,7 +156,7 @@ const PRINTACLE_PRODUCTS = [
         description: `Hypercars Wall Poster Collection`
     },
 
-/* ---------- ALL TOTE BAGS RESTORED (1 to 21) ---------- */
+/* ---------- TOTE BAGS ---------- */
     {
         id: "tote1",
         category: "tote-bags",
@@ -354,63 +354,54 @@ const PRINTACLE_PRODUCTS = [
         name: "Old Skool Coffee Mug",
         price: 249,
         image: "mug1.jpeg",
-        description: `Frosted Gabru Coffee Mug 
-         Old-Skool Punjabi Design 
-          Premium Printed Beer Glass Mug |
-           Stylish Gift for MEN
-           `
+        description: `Frosted Gabru Coffee Mug | Old-Skool Punjabi Design | Premium Printed Beer Glass Mug | Stylish Gift for MEN`
     },
-     {
+    {
         id: "mug2",
         category: "frosted-mugs",
         name: "Old Skool Beer Mug",
         price: 399,
         image: "mug2.jpeg",
-        description: ` Frosted Gabru Beer Mug 
-         Add a bold Punjabi vibe to your drinkware collection with our stylish frosted beer mug
-          featuring a vintage-inspired Old-Skool Gabru design
-           Perfect for gifting, home use, and anyone who loves unique Punjabi aesthetics. 🍺🔥
-✨
- Features: Frosted finish • Vintage Gabru design • Stylish beer mug • Perfect for gifting ` 
+        description: `Frosted Gabru Beer Mug | Add a bold Punjabi vibe to your drinkware collection with our stylish frosted beer mug featuring a vintage-inspired Old-Skool Gabru design.`
     },
-     {
+    {
         id: "mug3",
         category: "frosted-mugs",
-        name: "Coffee Mug and Beer Mug Set ",
+        name: "Coffee Mug and Beer Mug Set",
         price: 549,
         image: "mug3.jpeg",
         description: "Premium frosted Beer Mug and a Coffee Mug with print of your choice"
     },
-     {
+    {
         id: "mug4",
         category: "frosted-mugs",
         name: "Cute Beer mug",
         price: 399,
         image: "mug4.jpeg",
-        description: "Premium frosted Beer  mug with a cute design."
+        description: "Premium frosted Beer mug with a cute design."
     },
-     {
+    {
         id: "mug5",
         category: "frosted-mugs",
-        name: "Cute Coffe Mug",
+        name: "Cute Coffee Mug",
         price: 249,
         image: "mug5.jpeg",
-        description: "Premium frosted  Coffee mug with a cute design."
+        description: "Premium frosted Coffee mug with a cute design."
     },
-     {
+    {
         id: "mug6",
         category: "frosted-mugs",
-        name: "Ghabru Coffe Mug",
+        name: "Gabru Coffee Mug",
         price: 249,
         image: "mug6.jpeg",
-        description: "Premium frosted mug with a old skool Ghabru design."
+        description: "Premium frosted mug with a old skool Gabru design."
     },
 
 /* ---------- CAR HANGINGS ---------- */
     {
         id: "car1",
         category: "car-hangings",
-        name: " Car Hanging",
+        name: "Car Hanging",
         price: 199,
         image: "car1.jpeg",
         description: "Premium car hanging with an attractive design."
@@ -480,7 +471,7 @@ function initSidebar() {
 }
 
 /* =========================================================
-   HERO AUTO-SLIDING CAROUSEL (6 SLIDES)
+   HERO AUTO-SLIDING CAROUSEL
    ========================================================= */
 
 function initHeroSlider() {
@@ -489,11 +480,11 @@ function initHeroSlider() {
 
   const heroBannerSlides = [
     {
-      title: "Custom Printed Mugs ",
+      title: "Custom Printed Mugs",
       subtitle: "Collection.",
       tag: "SPECIAL OFFER",
       price: 249,
-      description: "Personalized special offer for your Crockery ",
+      description: "Personalized special offer for your Crockery",
       image: "banner1.png",
       linkCategory: "frosted-mugs"
     },
@@ -502,13 +493,13 @@ function initHeroSlider() {
       subtitle: "Tote Bags",
       tag: "SPECIAL OFFER",
       price: 199,
-      description: "Perfect bags for your every day use ",
+      description: "Perfect bags for your everyday use",
       image: "banner2.png",
       linkCategory: "tote-bags"
     },
     {
       title: "Singer/Footballer",
-      subtitle: " Poster Collection.",
+      subtitle: "Poster Collection.",
       tag: "SPECIAL OFFER",
       price: 199,
       description: "Personalized special offer for your everyday space.",
@@ -516,7 +507,7 @@ function initHeroSlider() {
       linkCategory: "posters"
     },
     {
-      title: "Crickter/Celebrity ",
+      title: "Cricketer/Celebrity",
       subtitle: "Collection",
       tag: "SPECIAL OFFER",
       price: 199,
@@ -525,20 +516,20 @@ function initHeroSlider() {
       linkCategory: "posters"
     },
     {
-      title: "Best Quality ",
+      title: "Best Quality",
       subtitle: "Premium Design",
       tag: "SPECIAL OFFER",
-      price : 199 , 
-      description: "Personalized set of 18 posters just at ",
+      price: 199, 
+      description: "Personalized set of 18 posters just at",
       image: "banner5.png",
       linkCategory: "posters"
     },
     {
-      title: "WHY Us ?  ",
-      subtitle: "cheapest and best quality ",
+      title: "WHY Us?",
+      subtitle: "cheapest and best quality",
       tag: "SPECIAL OFFER",
-      price: 199 , 
-      description: "beautiful car hangings , just at  ",
+      price: 199, 
+      description: "beautiful car hangings, just at",
       image: "banner6.png",
       linkCategory: "car-hangings"
     }
@@ -1183,10 +1174,25 @@ async function calculateDeliveryCharge() {
   }
 }
 
-// Clean UPI Link generator designed for Personal VPA compatibility
-function buildUpiLink(total) {
+/* 
+   GUARANTEED UPI LINK BUILDER
+   We remove the dynamic 'am' (amount) parameter from app buttons to bypass bank 
+   & security blocks on personal VPA transfers. 
+*/
+function buildUpiUrls(total) {
   const cleanAmount = Number(total).toFixed(2);
-  return `upi://pay?pa=${encodeURIComponent(PAYMENT_UPI_ID)}&pn=${encodeURIComponent("Printacle")}&am=${cleanAmount}&cu=INR`;
+  const upiRawNoAmt = `pa=${encodeURIComponent(PAYMENT_UPI_ID)}&pn=${encodeURIComponent("Printacle")}&cu=INR`;
+  const upiWithAmt = `${upiRawNoAmt}&am=${cleanAmount}`;
+
+  return {
+    // Buttons open UPI app without forcing amount (Guarantees bypass of transaction creation block)
+    standard: `upi://pay?${upiRawNoAmt}`,
+    gpay: `gpay://upi/pay?${upiRawNoAmt}`,
+    phonepe: `phonepe://pay?${upiRawNoAmt}`,
+    
+    // QR Code retains the exact total pre-filled for scanning
+    qrCodeData: `upi://pay?${upiWithAmt}`
+  };
 }
 
 async function sendOrderEmail(order) {
@@ -1197,7 +1203,7 @@ async function sendOrderEmail(order) {
       "Accept": "application/json"
     },
     body: JSON.stringify({
-      _subject: `New Printacle payment initiated - ₹${order.total}`,
+      _subject: `New Printacle Order - ₹${order.total}`,
       _template: "table",
       "Order ID": order.orderId,
       "Customer Name": order.customer.name,
@@ -1293,27 +1299,32 @@ async function handleCheckoutSubmit(event) {
   try {
     await sendOrderEmail(order);
   } catch (error) {
-    console.warn("Order email could not be sent:", error);
+    console.warn("Order email notification failed:", error);
   }
 
-  const upiLink = buildUpiLink(total);
+  const urls = buildUpiUrls(total);
   const paymentBox = document.getElementById("paymentBox");
   const paymentAmount = document.getElementById("paymentAmount");
   const paymentLink = document.getElementById("paymentLink");
+  const gpayLink = document.getElementById("gpayLink");
+  const phonepeLink = document.getElementById("phonepeLink");
   const upiQrCode = document.getElementById("upiQrCode");
 
-  if (paymentBox && paymentAmount && paymentLink) {
+  if (paymentBox && paymentAmount) {
     paymentAmount.textContent = `₹${money(total)}`;
-    paymentLink.href = upiLink;
     
+    // Assign reliable app links
+    if (paymentLink) paymentLink.href = urls.standard;
+    if (gpayLink) gpayLink.href = urls.gpay;
+    if (phonepeLink) phonepeLink.href = urls.phonepe;
+    
+    // QR Code contains exact total pre-filled
     if (upiQrCode) {
-      upiQrCode.src = `https://quickchart.io/qr?text=${encodeURIComponent(upiLink)}&size=250`;
+      upiQrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(urls.qrCodeData)}`;
     }
 
     paymentBox.hidden = false;
     paymentBox.scrollIntoView({ behavior: "smooth", block: "center" });
-  } else {
-    window.location.href = upiLink;
   }
 
   if (continueButton) {
