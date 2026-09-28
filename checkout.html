@@ -62,12 +62,23 @@
 
       <button type="submit" class="continue-payment" id="continuePayment">Continue to payment →</button>
 
-      <div class="payment-box" id="paymentBox" hidden>
+      <!-- PAYMENT BOX SECTION -->
+      <div class="payment-box" id="paymentBox" hidden style="text-align: center; margin-top: 20px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fafafa;">
         <p class="eyebrow">PAYMENT</p>
         <h2>Pay <span id="paymentAmount">₹0</span></h2>
-        <p>Tap the button below to open your UPI app with the amount already filled in.</p>
-        <a class="upi-payment-btn" id="paymentLink" href="#">Pay with UPI →</a>
-        <small>UPI ID: coder4454@oksbi</small>
+        
+        <p style="margin: 10px 0;">Tap the button below to open your UPI App directly:</p>
+        <a class="upi-payment-btn" id="paymentLink" href="#" style="display: inline-block; padding: 12px 24px; background: #000; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; margin-bottom: 15px;">Pay with UPI App →</a>
+        
+        <div style="margin: 15px 0;">
+          <p style="font-size: 14px; color: #666; margin-bottom: 8px;"><b>OR</b> Scan QR Code using any UPI App (GPay / PhonePe / Paytm / FamPay):</p>
+          <img id="upiQrCode" src="" alt="UPI Payment QR Code" style="width: 180px; height: 180px; border: 1px solid #ddd; border-radius: 8px; padding: 5px; background: #fff;">
+        </div>
+
+        <div style="margin-top: 10px;">
+          <small style="display: block; color: #555;">UPI ID: <b id="upiIdText">coder4454@oksbi</b></small>
+          <button type="button" id="copyUpiBtn" style="margin-top: 8px; padding: 6px 14px; background: #e2e8f0; border: none; border-radius: 6px; cursor: pointer; font-size: 13px;">Copy UPI ID</button>
+        </div>
       </div>
     </form>
 
@@ -82,7 +93,7 @@
         <span>Total</span>
         <strong>₹<span id="checkoutTotal">0</span></strong>
       </div>
-      <p class="checkout-note">Minimal Delievry Charges </p>
+      <p class="checkout-note">Minimal Delivery Charges</p>
     </aside>
   </div>
 </main>
