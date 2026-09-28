@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printacle | Posters & Accessories</title>
+  <link rel="stylesheet" href="printacle.css">
+  <style>
+    /* 16:9 HORIZONTAL STRETCH & 6-SLIDE ANIMATION */
+    .slider-window {
+      display: flex;
+      width: 600% !important; /* 6 Slides = 600% width */
+      animation: heroAutoSlide6 18s infinite cubic-bezier(0.77, 0, 0.175, 1) !important;
+    }
+
+    .hero-slide {
+      width: 16.666% !important; /* 100% / 6 = 16.666% width per slide */
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .slide-image-box {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9; /* 16 Horizontal x 9 Vertical */
+      background: #e8dfd2;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 40px #0001;
+    }
+
+    .slide-image-box img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: fill !important; /* Stretches images to fill 16:9 exactly */
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    /* 6-SLIDE AUTOMATIC LOOP KEYFRAMES */
+    @keyframes heroAutoSlide6 {
+      0%, 13.33% {
+        transform: translateX(0%);
+      }
+      16.66%, 30% {
+        transform: translateX(-16.666%);
+      }
+      33.33%, 46.66% {
+        transform: translateX(-33.333%);
+      }
+      50%, 63.33% {
+        transform: translateX(-50%);
+      }
+      66.66%, 80% {
+        transform: translateX(-66.666%);
+      }
+      83.33%, 96.66% {
+        transform: translateX(-83.333%);
+      }
+      100% {
+        transform: translateX(0%);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .hero-slide {
+        grid-template-columns: 1fr;
+      }
+      .slide-image-box {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .slide-image-box {
+        aspect-ratio: 16 / 9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <button class="menu-btn" id="menuBtn">☰</button>
+  <a href="index.html" class="logo">
+    <img src="logo.jpg" alt="Printacle">
+    <span>Printacle</span>
+  </a>
+  <a href="cart.html" class="cart">🛒 <b id="cartCount">0</b></a>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-top">
+    <h2>Printacle</h2>
+    <button id="closeBtn">×</button>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <button class="products-toggle" id="productsToggle">Our Products <span>⌄</span></button>
+    <div class="product-menu" id="productMenu">
+      <a href="product.html?category=posters">Posters</a>
+      <a href="product.html?category=tote-bags">Tote Bags</a>
+      <a href="product.html?category=frosted-mugs">Frosted Mugs</a>
+      <a href="product.html?category=car-hangings">Car Hangings</a>
+    </div>
+    <a href="about.html">About Us</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+</aside>
+<div class="overlay" id="overlay"></div>
+
+<main>
+  <!-- HERO AUTOSCROLL SLIDER SECTION -->
+  <section class="hero-slider">
+    <div class="slider-window" id="heroSliderTrack">
+      <!-- Slides are populated dynamically from printacle.js -->
+    </div>
+  </section>
+
+  <section class="collection">
+    <p class="eyebrow">THE COLLECTION</p>
+    <h2>Pick your Product</h2>
+    <div class="grid">
+      <a class="product-card" href="product.html?category=posters">
+        <div class="sample poster">
+          <img src="poster1.jpeg" class="card-img" alt="Posters">
+          <h3>Posters <span>Explore →</span></h3>
+        </div>
+      </a>
+
+      <a class="product-card" href="product.html?category=tote-bags">
+        <div class="sample tote">
+          <img src="tote21.jpeg" class="card-img" alt="Tote Bags">
+          <h3>Tote Bags <span>Explore →</span></h3>
+        </div>
+      </a>
+
+      <a class="product-card" href="product.html?category=frosted-mugs">
+        <div class="sample mugs">
+          <img src="mug1.jpeg" class="card-img" alt="Frosted Mugs">
+          <h3>Frosted Mugs <span>Explore →</span></h3>
+        </div>
+      </a>
+
+      <a class="product-card" href="product.html?category=car-hangings">
+        <div class="sample car">
+          <img src="car1.jpeg" class="card-img" alt="Car Hangings">
+          <h3>Car Hangings <span>Explore →</span></h3>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="story">
+    <p>PRINT OF YOUR CHOICE</p>
+    <h2>Send us a image of your choice to get custom printed merch </h2>
+    <a href="about.html">Contact Us  →</a>
+  </section>
+</main>
+
+<footer>© 2026 Printacle <span>Made for your everyday.</span></footer>
+
+<!-- Product Detail Modal -->
+<div class="product-modal" id="productModal" aria-hidden="true">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="product-modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-product">
+      <div class="modal-image-wrap">
+        <img id="modalImage" src="" alt="">
+        <div id="modalFallback" class="modal-fallback"></div>
+      </div>
+      <div class="modal-copy">
+        <p class="eyebrow" id="modalCategory"></p>
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+        <div class="modal-price">₹<span id="modalPrice"></span></div>
+
+        <div class="modal-actions">
+          <label class="quantity-label">
+            Quantity
+            <div class="quantity-control">
+              <button type="button" id="modalMinus">−</button>
+              <span id="modalQuantity">1</span>
+              <button type="button" id="modalPlus">+</button>
+            </div>
+          </label>
+          <button class="add-cart-btn" id="modalAdd">Add to Cart</button>
+        </div>
+        <p class="added-message" id="addedMessage"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="printacle.js"></script>
+</body>
+</html>
